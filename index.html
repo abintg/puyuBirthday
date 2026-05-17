@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Puyu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:black;
+overflow-x:hidden;
+color:white;
+min-height:100vh;
+position:relative;
+}
+
+/* BACKGROUND */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top,#ff4d88 0%,#140016 45%,#000 100%);
+z-index:-5;
+}
+
+/* STARS */
+
+.star{
+position:fixed;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%,100%{
+opacity:0.2;
+}
+50%{
+opacity:1;
+}
+}
+
+/* CONTAINER */
+
+.container{
+width:100%;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 15px;
+}
+
+.card{
+width:100%;
+max-width:950px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+border-radius:35px;
+padding:55px;
+text-align:center;
+position:relative;
+overflow:hidden;
+box-shadow:0 0 50px rgba(255,0,120,0.35);
+animation:fadeIn 2s ease;
+}
+
+/* SHINE */
+
+.card::before{
+content:"";
+position:absolute;
+top:-150%;
+left:-50%;
+width:200%;
+height:300%;
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.15),
+transparent
+);
+animation:shine 6s linear infinite;
+}
+
+@keyframes shine{
+0%{
+transform:translateX(-100%) rotate(25deg);
+}
+100%{
+transform:translateX(100%) rotate(25deg);
+}
+}
+
+/* HEART */
+
+.mainHeart{
+font-size:100px;
+animation:beat 1s infinite;
+}
+
+@keyframes beat{
+0%{transform:scale(1);}
+50%{transform:scale(1.15);}
+100%{transform:scale(1);}
+}
+
+/* TITLES */
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:90px;
+color:#ffd6e5;
+}
+
+.subtitle{
+margin-top:10px;
+font-size:28px;
+font-weight:300;
+}
+
+/* MESSAGE */
+
+.message{
+margin-top:40px;
+font-size:22px;
+line-height:2;
+}
+
+.highlight{
+color:#ffd54f;
+font-weight:bold;
+}
+
+/* COUNTER */
+
+.counter{
+margin-top:35px;
+background:rgba(255,255,255,0.08);
+padding:22px;
+border-radius:20px;
+font-size:22px;
+}
+
+/* BUTTON */
+
+button{
+margin-top:40px;
+padding:18px 40px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#ff006a,#ff4d88);
+color:white;
+font-size:21px;
+font-weight:bold;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 0 30px rgba(255,0,106,0.7);
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+/* FINAL MESSAGE */
+
+.finalMessage{
+display:none;
+margin-top:35px;
+font-size:34px;
+color:#ffe066;
+line-height:1.8;
+animation:fadeIn 2s ease;
+}
+
+/* TYPING */
+
+.typing{
+overflow:hidden;
+white-space:nowrap;
+border-right:3px solid white;
+width:0;
+animation:
+typing 5s steps(40,end) forwards,
+blink 0.7s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{
+border-color:transparent;
+}
+}
+
+/* MEMORY BOX */
+
+.memoryBox{
+display:none;
+margin-top:35px;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,0.08);
+animation:fadeIn 2s ease;
+}
+
+.memoryTitle{
+font-size:30px;
+margin-bottom:20px;
+color:#ffb6cf;
+}
+
+.memoryLine{
+margin:15px 0;
+font-size:19px;
+}
+
+/* SECRET LETTER */
+
+.secretLetter{
+display:none;
+margin-top:35px;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,0.08);
+line-height:2;
+animation:fadeIn 2s ease;
+}
+
+/* GALLERY */
+
+.gallery{
+display:none;
+margin-top:35px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.photo{
+background:rgba(255,255,255,0.08);
+padding:12px;
+border-radius:20px;
+}
+
+.photo img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.photoText{
+margin-top:12px;
+font-size:16px;
+}
+
+/* NAMES */
+
+.names{
+margin-top:35px;
+font-size:28px;
+color:#ffb6cf;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%,100%{
+opacity:0.7;
+}
+50%{
+opacity:1;
+}
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:35px;
+opacity:0.8;
+}
+
+/* FLOAT HEART */
+
+.floating-heart{
+position:fixed;
+z-index:9999;
+pointer-events:none;
+animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(0) scale(0.5);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) scale(1.8);
+opacity:0;
+}
+}
+
+/* CONFETTI */
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+animation:confettiFall linear forwards;
+z-index:9999;
+}
+
+@keyframes confettiFall{
+0%{
+transform:translateY(0) rotate(0deg);
+}
+100%{
+transform:translateY(120vh) rotate(720deg);
+}
+}
+
+/* FADE */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.container{
+padding:20px 10px;
+align-items:flex-start;
+}
+
+.card{
+padding:28px 18px;
+border-radius:25px;
+}
+
+.mainHeart{
+font-size:65px;
+}
+
+h1{
+font-size:58px;
+}
+
+.subtitle{
+font-size:18px;
+}
+
+.message{
+font-size:16px;
+line-height:1.9;
+}
+
+.counter{
+font-size:16px;
+padding:15px;
+}
+
+button{
+width:100%;
+padding:15px;
+font-size:18px;
+}
+
+.finalMessage{
+font-size:24px;
+}
+
+.typing{
+white-space:normal;
+width:100%;
+border-right:none;
+animation:none;
+}
+
+.memoryTitle{
+font-size:24px;
+}
+
+.memoryLine{
+font-size:15px;
+}
+
+.names{
+font-size:21px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="mainHeart">❤️</div>
+
+<h1>Happy Birthday</h1>
+
+<div class="subtitle">
+To My Beautiful Puyu ✨
+</div>
+
+<div class="message">
+
+From the day we met on  
+<span class="highlight">July 25, 2025</span>...  
+Abi's world slowly started changing ❤️
+
+<br><br>
+
+Before you, life was normal...  
+but after you entered Abi's life,  
+even small moments became magical ✨
+
+<br><br>
+
+This is your <span class="highlight">first birthday</span> after we met 💖
+
+<br><br>
+
+Puyu...  
+you became Abi's comfort, happiness, peace,  
+and favorite person ❤️
+
+</div>
+
+<div class="counter" id="loveDays">
+❤️ Calculating our beautiful days...
+</div>
+
+<button onclick="openHeart()">
+Open Abi's Heart ❤️
+</button>
+
+<div class="finalMessage" id="finalMessage">
+
+<div class="typing">
+Puyu... Abi Loves You More Than Anything ❤️
+</div>
+
+<br><br>
+
+You are the best thing that happened in Abi's life ✨
+
+<br><br>
+
+I LOVE YOU ENDLESSLY 💖
+
+</div>
+
+<div class="memoryBox" id="memoryBox">
+
+<div class="memoryTitle">
+✨ Our Beautiful Journey ✨
+</div>
+
+<div class="memoryLine">
+❤️ First met : July 25, 2025
+</div>
+
+<div class="memoryLine">
+💖 First Birthday Together : June 27, 2026
+</div>
+
+<div class="memoryLine">
+🌍 Distance may change... but Abi's love never changes ❤️
+</div>
+
+</div>
+
+<div class="gallery" id="gallery">
+
+<div class="photo">
+<img src="photo1.jpg">
+<div class="photoText">Us, our vibes, and a million memories ✨</div>
+</div>
+
+<div class="photo">
+<img src="photo2.jpg">
+<div class="photoText"photoText">Every picture with you feels like home ❤️</div>
+</div>
+
+<div class="photo">
+<img src="photo3.jpg">
+<div class="photoText">Falling for you more in every frame 🤍</div>
+</div>
+
+</div>
+
+<div class="secretLetter" id="secretLetter">
+
+<h2 style="margin-bottom:20px;color:#ffb6cf;">
+💌 Secret Letter For Puyu
+</h2>
+
+Sometimes Abi wonders how one person can become this important in such a short time ❤️
+
+<br><br>
+
+You entered Abi's life quietly... but slowly became the most beautiful part of every day ✨
+
+<br><br>
+
+No matter what happens in life, Abi will always remember your smile and your care 💖
+
+<br><br>
+
+Happy Birthday Puyu ❤️
+
+</div>
+
+<div class="names">
+❤️ Abi + Puyu Forever ❤️
+</div>
+
+<div class="footer">
+Made with endless love by Abi 💌
+</div>
+
+</div>
+
+</div>
+
+<!-- MUSIC -->
+
+<audio autoplay loop id="bgMusic">
+<source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+/* LOVE DAYS */
+
+const startDate = new Date("2025-07-25");
+const today = new Date("2026-06-27");
+
+const diffTime = today - startDate;
+
+const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+document.getElementById("loveDays").innerHTML =
+"❤️ Abi & Puyu already created <span class='highlight'>" +
+diffDays +
+" beautiful days</span> together ❤️";
+
+/* STARS */
+
+for(let i=0;i<170;i++){
+
+let star=document.createElement("div");
+
+star.classList.add("star");
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+star.style.animationDuration=(Math.random()*5+2)+"s";
+
+document.body.appendChild(star);
+
+}
+
+/* HEART OPEN */
+
+function openHeart(){
+
+document.getElementById("bgMusic").play();
+
+document.getElementById("finalMessage").style.display="block";
+
+document.getElementById("memoryBox").style.display="block";
+
+document.getElementById("gallery").style.display="grid";
+
+document.getElementById("secretLetter").style.display="block";
+
+/* HEARTS */
+
+for(let i=0;i<180;i++){
+
+let heart=document.createElement("div");
+
+heart.classList.add("floating-heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top="100vh";
+
+heart.style.fontSize=(Math.random()*35+18)+"px";
+
+heart.style.animationDuration=(Math.random()*5+4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},9000);
+
+}
+
+/* LOVE TEXTS */
+
+const texts = [
+"I Love You ❤️",
+"Puyu ❤️",
+"Abi Loves You 💖",
+"Forever Together ✨",
+"You Are My Happiness 💕"
+];
+
+for(let i=0;i<40;i++){
+
+let text=document.createElement("div");
+
+text.innerHTML=texts[Math.floor(Math.random()*texts.length)];
+
+text.style.position="fixed";
+
+text.style.left=Math.random()*100+"vw";
+
+text.style.top="100vh";
+
+text.style.color="#ffd6e5";
+
+text.style.fontSize=(Math.random()*12+18)+"px";
+
+text.style.fontWeight="bold";
+
+text.style.animation="floatUp 7s linear forwards";
+
+text.style.zIndex="9999";
+
+document.body.appendChild(text);
+
+setTimeout(()=>{
+text.remove();
+},7000);
+
+}
+
+/* CONFETTI */
+
+const confettiColors=[
+"#ff4d88",
+"#ffd54f",
+"#ffffff",
+"#ff99cc"
+];
+
+for(let i=0;i<120;i++){
+
+let confetti=document.createElement("div");
+
+confetti.classList.add("confetti");
+
+confetti.style.left=Math.random()*100+"vw";
+
+confetti.style.background=
+confettiColors[Math.floor(Math.random()*confettiColors.length)];
+
+confetti.style.animationDuration=
+(Math.random()*3+3)+"s";
+
+document.body.appendChild(confetti);
+
+setTimeout(()=>{
+confetti.remove();
+},6000);
+
+}
+
+document.querySelector("button").innerHTML =
+"Abi Loves Puyu Forever ❤️";
+
+document.querySelector("button").disabled = true;
+
+}
+
+/* TOUCH HEART EFFECT */
+
+document.addEventListener("click", function(e){
+
+let heart = document.createElement("div");
+
+heart.innerHTML = "❤️";
+
+heart.classList.add("floating-heart");
+
+heart.style.left = e.clientX + "px";
+
+heart.style.top = e.clientY + "px";
+
+heart.style.fontSize = "30px";
+
+heart.style.animationDuration = "3s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},3000);
+
+});
+
+</script>
+
+</body>
+</html>
